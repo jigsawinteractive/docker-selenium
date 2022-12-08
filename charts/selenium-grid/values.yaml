@@ -403,10 +403,10 @@ chromeNode:
   autoscalingEnabled: false
   maxReplicaCount: 8
   hpa:
-    url: http://selenium-hub.default:4444/graphql # Repalce your http graphql url here
+    # url: http://selenium-hub:4444/graphql # Override your http graphql url here
+    # unsafeSsl : 'true' # Optional
     browserName: chrome
     # browserVersion: '91.0' # Optional. Only required when supporting multiple versions of browser in your Selenium Grid.
-    unsafeSsl : 'true' # Optional
 
 # Configuration for firefox nodes
 firefoxNode:
@@ -523,7 +523,8 @@ firefoxNode:
   autoscalingEnabled: false
   maxReplicaCount: 8
   hpa:
-    url: http://selenium-hub.default:4444/graphql # Repalce your http graphql url here
+    # url: http://selenium-hub:4444/graphql # Override your http graphql url here
+    # unsafeSsl : 'true' # Optional
     browserName: firefox
 
 # Configuration for edge nodes
@@ -641,7 +642,8 @@ edgeNode:
   autoscalingEnabled: false
   maxReplicaCount: 8
   hpa:
-    url: http://selenium-hub.default:4444/graphql # Repalce your http graphql url here
+    # url: http://selenium-hub:4444/graphql # Override your http graphql url here
+    # unsafeSsl : 'true' # Optional
     browserName: MicrosoftEdge
 
 # Custom labels for k8s resources
