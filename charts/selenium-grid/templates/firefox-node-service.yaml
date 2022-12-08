@@ -13,6 +13,9 @@ metadata:
   {{- end }}
 spec:
   type: {{ .Values.firefoxNode.service.type }}
+  {{- if (and (eq .Values.firefoxNode.service.type "ClusterIP") (.Values.firefoxNode.service.clusterIP)) }}
+  clusterIP: {{ .Values.firefoxNode.service.clusterIP | quote }}
+  {{- end }}
   selector:
     app: selenium-firefox-node
     app.kubernetes.io/instance: {{ .Release.Name }}

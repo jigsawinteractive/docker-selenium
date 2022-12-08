@@ -13,6 +13,9 @@ metadata:
   {{- end }}
 spec:
   type: {{ .Values.edgeNode.service.type }}
+  {{- if (and (eq .Values.edgeNode.service.type "ClusterIP") (.Values.edgeNode.service.clusterIP)) }}
+  clusterIP: {{ .Values.edgeNode.service.clusterIP | quote }}
+  {{- end }}
   selector:
     app: selenium-edge-node
     app.kubernetes.io/instance: {{ .Release.Name }}

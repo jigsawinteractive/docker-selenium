@@ -18,6 +18,9 @@ spec:
     app: selenium-session-map
     app.kubernetes.io/instance: {{ .Release.Name }}
   type: {{ .Values.components.sessionMap.serviceType }}
+  {{- if (and (eq .Values.components.sessionMap.serviceType "ClusterIP") (.Values.components.sessionMap.clusterIP)) }}
+  clusterIP: {{ .Values.components.sessionMap.clusterIP | quote }}
+  {{- end }}
   ports:
     - name: tcp-ssn-map
       protocol: TCP

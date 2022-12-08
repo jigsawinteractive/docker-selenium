@@ -72,6 +72,8 @@ components:
     resources: {}
     # Kubernetes service type (see https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
     serviceType: ClusterIP
+    # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    clusterIP: "" # "None" | <IP>
     # Set specific loadBalancerIP when serviceType is LoadBalancer (see https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer)
     loadBalancerIP: ""
     # Custom annotations for router service
@@ -103,6 +105,8 @@ components:
     resources: {}
     # Kubernetes service type (see https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
     serviceType: ClusterIP
+    # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    clusterIP: "" # "None" | <IP>
     # Custom annotations for Distributor service
     serviceAnnotations: {}
     # Tolerations for Distributor pods
@@ -136,6 +140,8 @@ components:
     resources: {}
     # Kubernetes service type (see https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
     serviceType: ClusterIP
+    # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    clusterIP: "" # "None" | <IP>
     # Custom annotations for Event Bus service
     serviceAnnotations: {}
     # Tolerations for Event Bus pods
@@ -164,6 +170,8 @@ components:
     resources: {}
     # Kubernetes service type (see https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
     serviceType: ClusterIP
+    # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    clusterIP: "" # "None" | <IP>
     # Custom annotations for Session Map service
     serviceAnnotations: {}
     # Tolerations for Session Map pods
@@ -192,6 +200,8 @@ components:
     resources: {}
     # Kubernetes service type (see https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
     serviceType: ClusterIP
+    # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    clusterIP: "" # "None" | <IP>
     # Custom annotations for Session Queue service
     serviceAnnotations: {}
     # Tolerations for Session Queue pods
@@ -276,6 +286,8 @@ hub:
   resources: {}
   # Kubernetes service type (see https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
   serviceType: ClusterIP
+  # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+  clusterIP: "" # "None" | <IP>
   # Set specific loadBalancerIP when serviceType is LoadBalancer (see https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer)
   loadBalancerIP: ""
   # Custom annotations for Selenium Hub service
@@ -363,6 +375,8 @@ chromeNode:
     enabled: true
     # Service type
     type: ClusterIP
+    # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    clusterIP: "" # "None" | <IP>
     # Custom annotations for service
     annotations: {}
   # Size limit for DSH volume mounted in container (if not set, default is "1Gi")
@@ -486,6 +500,8 @@ firefoxNode:
     enabled: true
     # Service type
     type: ClusterIP
+    # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    clusterIP: "" # "None" | <IP>
     # Custom annotations for service
     annotations: {}
   # Size limit for DSH volume mounted in container (if not set, default is "1Gi")
@@ -606,6 +622,8 @@ edgeNode:
     enabled: true
     # Service type
     type: ClusterIP
+    # Ability to define clusterIP or use "None" to use it as Headless Service when serviceType is ClusterIP (see https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
+    clusterIP: "" # "None" | <IP>
     # Custom annotations for service
     annotations:
       hello: world
