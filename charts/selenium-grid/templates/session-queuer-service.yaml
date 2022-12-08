@@ -18,6 +18,9 @@ spec:
     app: selenium-session-queue
     app.kubernetes.io/instance: {{ .Release.Name }}
   type: {{ .Values.components.sessionQueue.serviceType }}
+  {{- if (and (eq .Values.components.sessionQueue.serviceType "ClusterIP") (.Values.components.sessionQueue.clusterIP)) }}
+  clusterIP: {{ .Values.components.sessionQueue.clusterIP | quote }}
+  {{- end }}
   ports:
     - name: tcp-ssn-que
       protocol: TCP
