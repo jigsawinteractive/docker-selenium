@@ -331,6 +331,8 @@ chromeNode:
   tolerations: []
   # Node selector for chrome-node pods
   nodeSelector: {}
+  # Affinity for chrome-node pods
+  affinity: {}
   # Custom host aliases for chrome nodes
   hostAliases:
     # - ip: "198.51.100.0"
@@ -444,6 +446,8 @@ firefoxNode:
   tolerations: []
   # Node selector for firefox-node pods
   nodeSelector: {}
+  # Affinity for firefox-node pods
+  affinity: {}
   # Resources for firefox-node container
   resources:
     requests:
@@ -562,6 +566,8 @@ edgeNode:
   tolerations: []
   # Node selector for edge-node pods
   nodeSelector: {}
+  # Affinity for edge-node pods
+  affinity: {}
   # Resources for edge-node container
   resources:
     requests:
