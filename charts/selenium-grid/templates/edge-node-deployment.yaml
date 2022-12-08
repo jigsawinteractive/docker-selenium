@@ -75,6 +75,10 @@ spec:
       tolerations:
         {{ toYaml . | nindent 6 }}
     {{- end }}
+    {{- with .Values.edgeNode.affinity }}
+      affinity:
+        {{ toYaml . | nindent 8 }}
+    {{- end }}
     {{- if or .Values.global.seleniumGrid.imagePullSecret .Values.edgeNode.imagePullSecret }}
       imagePullSecrets:
         - name: {{ default .Values.global.seleniumGrid.imagePullSecret .Values.edgeNode.imagePullSecret }}
