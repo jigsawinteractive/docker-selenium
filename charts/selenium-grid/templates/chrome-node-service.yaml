@@ -13,6 +13,9 @@ metadata:
   {{- end }}
 spec:
   type: {{ .Values.chromeNode.service.type }}
+  {{- if (and (eq .Values.chromeNode.service.type "ClusterIP") (.Values.chromeNode.service.clusterIP)) }}
+  clusterIP: {{ .Values.chromeNode.service.clusterIP | quote }}
+  {{- end }}
   selector:
     app: selenium-chrome-node
     app.kubernetes.io/instance: {{ .Release.Name }}

@@ -18,6 +18,9 @@ spec:
     app: selenium-event-bus
     app.kubernetes.io/instance: {{ .Release.Name }}
   type: {{ .Values.components.eventBus.serviceType }}
+  {{- if (and (eq .Values.components.eventBus.serviceType "ClusterIP") (.Values.components.eventBus.clusterIP)) }}
+  clusterIP: {{ .Values.components.eventBus.clusterIP | quote }}
+  {{- end }}
   ports:
     - name: http-evtbus
       protocol: TCP

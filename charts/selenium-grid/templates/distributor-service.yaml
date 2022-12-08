@@ -18,6 +18,9 @@ spec:
     app: selenium-distributor
     app.kubernetes.io/instance: {{ .Release.Name }}
   type: {{ .Values.components.distributor.serviceType }}
+  {{- if (and (eq .Values.components.distributor.serviceType "ClusterIP") (.Values.components.distributor.clusterIP)) }}
+  clusterIP: {{ .Values.components.distributor.clusterIP | quote }}
+  {{- end }}
   ports:
     - name: tcp-dist
       protocol: TCP
