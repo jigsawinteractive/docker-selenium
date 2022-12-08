@@ -1,4 +1,6 @@
 {{- if and .Values.firefoxNode.enabled .Values.firefoxNode.autoscalingEnabled }}
+{{ $hubGraphqlUrlDefault := printf "http://%s.%s:%d/graphql" (include "seleniumGrid.hub.fullname" .) .Release.Namespace (int .Values.hub.port) }}
+{{ $hubGraphqlUrl := .Values.firefoxNode.hpa.url | default (print $hubGraphqlUrlDefault) }}
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
@@ -12,7 +14,9 @@ spec:
     name: {{ template "seleniumGrid.firefoxNode.fullname" . }}
   triggers:
     - type: selenium-grid
-    {{- with .Values.firefoxNode.hpa }}
-      metadata: {{- toYaml . | nindent 8 }}
+    {{- with (unset .Values.firefoxNode.hpa "url") }}
+      metadata:
+        url: {{ $hubGraphqlUrl | quote }}
+        {{- toYaml . | nindent 8 }}
     {{- end }}
 {{- end }}
